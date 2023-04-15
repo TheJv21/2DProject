@@ -65,6 +65,22 @@ public class Salud : MonoBehaviour
 			//animator.SetTrigger("perderSalud");
 		}
 	}
+
+	public void PerderSalud2(float saludPerdida)
+	{
+		//animator.ResetTrigger("perderSalud");
+		saludActual = Mathf.Max(saludActual - saludPerdida, 0);
+		alPerderSalud?.Invoke(saludPerdida);
+		alActualizarSalud?.Invoke();
+		if (saludActual == 0)
+		{
+			Morir();
+		}
+		else
+		{
+			//animator.SetTrigger("perderSalud");
+		}
+	}
 	private void Morir()
 	{
 		if (estaMuerto) return;

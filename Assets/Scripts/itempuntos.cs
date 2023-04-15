@@ -6,8 +6,17 @@ public class itempuntos : MonoBehaviour
 {
 
     [SerializeField] private int puntosBrindados = 100;
+    [SerializeField] private AudioClip audioClip;
+    private SpriteRenderer spriterender;
 
     private bool activado = false;
+    private AudioSource audiosource;
+
+    private void Start()
+    {
+        audiosource = GetComponent<AudioSource>();
+        spriterender = GetComponent<SpriteRenderer>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,7 +26,17 @@ public class itempuntos : MonoBehaviour
         {
             activado = true;
             puntos.SumarPuntos(puntosBrindados);
-            Destroy(gameObject);
+            spriterender.enabled = false;
+            Destroy(gameObject, audioClip.length);
         }
+
+        if (audioClip == null) { return; }
+        ReproducirSonido();
+
+    }
+
+    private void ReproducirSonido()
+    {
+        audiosource.PlayOneShot(audioClip);
     }
 }
