@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Movimiento : MonoBehaviour
 {
-    [SerializeField] private float velCaminar = 4f;
+    [SerializeField] private float velCaminar = 3f;
+    [SerializeField] private float velCorrer = 6f;
     //[SerializeField] private float velInicialDeSalto = 5.0f;
     [SerializeField] private float alturaSalto = 5.0f;
     [SerializeField] private LayerMask capasSalto;
@@ -18,6 +19,7 @@ public class Movimiento : MonoBehaviour
     private Rigidbody2D rb;
     private BoxCollider2D boxcollaider;
     private Animator animator;
+    private float velocidadMovimiento;
 
     void Start()
     {
@@ -29,6 +31,16 @@ public class Movimiento : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        {
+            velocidadMovimiento = velCorrer;
+        }
+        else
+        {
+            velocidadMovimiento = velCaminar;
+         
+        }
+
 
         if (boxcollaider.IsTouchingLayers())
         {
@@ -39,7 +51,8 @@ public class Movimiento : MonoBehaviour
 
     public void MoverseEnX(float movimientoX)
     {
-        rb.velocity = new Vector2(movimientoX * velCaminar, rb.velocity.y);
+        
+        rb.velocity = new Vector2(movimientoX * velocidadMovimiento, rb.velocity.y);
         if (animator != null)
         {
             animator.SetBool("estaCorriendo", Mathf.Abs(movimientoX)> Mathf.Epsilon);

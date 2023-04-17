@@ -1462,17 +1462,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 987088942}
   m_CullTransparentMesh: 1
---- !u!114 &1060169653 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1035329246082571022, guid: 556dda6e8e284064786b930f95ee1792, type: 3}
-  m_PrefabInstance: {fileID: 1035329246054443283}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 622bd49f8f455d644abcc83ba41a25af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1086322790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,7 +1507,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd21631d745a3454db4a38c09b027635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1060169653}
 --- !u!61 &1086322793
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17699,7 +17687,7 @@ GameObject:
   - component: {fileID: 1482607557}
   - component: {fileID: 1482607556}
   - component: {fileID: 1482607561}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap Escalera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
