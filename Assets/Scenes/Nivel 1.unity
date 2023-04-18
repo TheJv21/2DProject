@@ -15911,7 +15911,7 @@ GameObject:
   - component: {fileID: 1253252415}
   m_Layer: 6
   m_Name: Tilemap Plataforma
-  m_TagString: Untagged
+  m_TagString: Plataforma
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

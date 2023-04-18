@@ -8,8 +8,8 @@ public class Proyectil : MonoBehaviour
 	[SerializeField] private static float ataque = 1f;
 	[SerializeField] private float velocidad = 5f;
 	[SerializeField] private float tiempoDeVida = 2f;
-	private float tiempo = 5f;
-	public static float valor2=1f;
+	private float tiempo = 1f;
+	public static float valor2= 1f;
 	public float ataque2;
 	private Rigidbody2D rb;
 	private EquipoEnum equipoEnum;
@@ -38,6 +38,7 @@ public class Proyectil : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
+        if (other.CompareTag("Plataforma")) { Destroy(gameObject); }
 		if (!other.gameObject.TryGetComponent<Salud>(out Salud saludDelOtro)) { return; }
 		if (!other.gameObject.TryGetComponent<Equipo>(out Equipo equipoDelOtro)) { return; }
 		if (equipoDelOtro.EquipoActual == equipoEnum) { return; }
@@ -49,10 +50,8 @@ public class Proyectil : MonoBehaviour
 			{
 				saludDelOtro.PerderSalud(ataque + 10);
 			}
-			
 		}
 			saludDelOtro.PerderSalud2(ataque);
-
 		Destroy(gameObject);
 	}
 
