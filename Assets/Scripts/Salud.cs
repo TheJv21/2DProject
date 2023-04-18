@@ -9,12 +9,18 @@ public class Salud : MonoBehaviour
 	[SerializeField] private float saludMax = 3f;
 	[SerializeField] private bool destruirAlMorir = true;
 	[SerializeField] private float tiempoEnDestruirse = 0f;
+	[SerializeField] private float TMPInmunidad = 0.1f;
 	[SerializeField] private UnityEvent<float> alPerderSalud;
 	[SerializeField] private UnityEvent alMorir;
 
-	private float saludActual;
+	MaterialDestello material;
+	SpriteRenderer render;
+
+	public float saludActual;
 	private Animator animator;
 	private bool estaMuerto = false;
+
+	private bool esinmune;
 
 	public event Action alActualizarSalud;
 
@@ -23,12 +29,21 @@ public class Salud : MonoBehaviour
 		animator = GetComponent<Animator>();
 		saludActual = saludMax;
 	}
-
-	private void Start()
+    private void Update()
+    {
+        if(saludActual > saludMax)
+		{
+			saludActual = saludMax;
+		}
+    }
+    private void Start()
 	{
+		render = GetComponent<SpriteRenderer>();
+		material= GetComponent<MaterialDestello>();
 		alActualizarSalud?.Invoke();
+		
 	}
-
+	
 	public bool EstaMuerto()
 	{
 		return estaMuerto;
@@ -49,20 +64,33 @@ public class Salud : MonoBehaviour
 		saludActual = salud;
 		alActualizarSalud?.Invoke();
 	}
+	IEnumerator inmunidad()
+	{
+		esinmune = true;
+		render.material = material.destello;
+		yield return new WaitForSeconds(TMPInmunidad);
+		render.material = material.original;
+		esinmune= false;
+	}
 
 	public void PerderSalud(float saludPerdida)
 	{
 		//animator.ResetTrigger("perderSalud");
-		saludActual = Mathf.Max(saludActual - saludPerdida, 0);
-		alPerderSalud?.Invoke(saludPerdida);
-		alActualizarSalud?.Invoke();
-		if (saludActual == 0)
+		if (!esinmune)
 		{
-			Morir();
-		}
-		else
-		{
-			//animator.SetTrigger("perderSalud");
+			saludActual = Mathf.Max(saludActual - saludPerdida, 0);
+			alPerderSalud?.Invoke(saludPerdida);
+			alActualizarSalud?.Invoke();
+			StartCoroutine(inmunidad());
+
+			if (saludActual == 0)
+			{
+				Morir();
+			}
+			else
+			{
+				//animator.SetTrigger("perderSalud");
+			}
 		}
 	}
 	private void Morir()
@@ -77,6 +105,12 @@ public class Salud : MonoBehaviour
 			Destroy(gameObject, tiempoEnDestruirse);
 		}
 	}
+
+  public void RecuperarVida(float vida)
+	{
+		saludActual += vida;
+        alActualizarSalud?.Invoke();
+    }
 }
 
 
