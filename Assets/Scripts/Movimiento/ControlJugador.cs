@@ -10,15 +10,15 @@ public class ControlJugador : MonoBehaviour
     private Vector2 entradaControlMov;
     private LanzaProyectiles lanzaProyectiles;
     private Rigidbody2D rb;
-    private float moveSpeed, dirX, dirY;
-    public bool ClimbingAllowed { get; set; }
+    //private float moveSpeed, dirX, dirY;
+    //public bool ClimbingAllowed { get; set; }
 
     void Start()
     {
         movimiento = GetComponent<Movimiento>();
         lanzaProyectiles = GetComponent<LanzaProyectiles>();
         rb = GetComponent<Rigidbody2D>();
-        moveSpeed = 5f;
+        //moveSpeed = 5f;
 
     }
 
@@ -26,27 +26,27 @@ public class ControlJugador : MonoBehaviour
     void Update()
     {
         movimiento.MoverseEnX(entradaControlMov.x);
-        dirX = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        //dirX = Input.GetAxisRaw("Horizontal") * moveSpeed;
 
-        if (ClimbingAllowed)
-        {
-            dirY = Input.GetAxisRaw("Vertical") * moveSpeed;
-        }
+        //if (ClimbingAllowed)
+        //{
+        //    dirY = Input.GetAxisRaw("Vertical") * moveSpeed;
+        //}
 
     }
-    private void FixedUpdate()
-    {
-        if (ClimbingAllowed)
-        {
-            rb.isKinematic = true;
-            rb.velocity = new Vector2(dirX, dirY);
-        }
-        else
-        {
-            rb.isKinematic = false;
-            rb.velocity = new Vector2(dirX, rb.velocity.y);
-        }
-    }
+    //private void FixedUpdate()
+    //{
+    //    if (ClimbingAllowed)
+    //    {
+    //        rb.isKinematic = true;
+    //        rb.velocity = new Vector2(dirX, dirY);
+    //    }
+    //    else
+    //    {
+    //        rb.isKinematic = false;
+    //        rb.velocity = new Vector2(dirX, rb.velocity.y);
+    //    }
+    //}
 
     public void AlMoverse(InputAction.CallbackContext context)
     {
