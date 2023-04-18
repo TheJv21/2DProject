@@ -75,15 +75,34 @@ public class Salud : MonoBehaviour
 
 	public void PerderSalud(float saludPerdida)
 	{
+		
+			saludActual = Mathf.Max(saludActual - saludPerdida, 0);
+			alPerderSalud?.Invoke(saludPerdida);
+			alActualizarSalud?.Invoke();
+		
+
+			if (saludActual == 0)
+			{
+				Morir();
+			}
+			else
+			{
+				//animator.SetTrigger("perderSalud");
+			}
+		
+	}
+
+	public void PerderSaludJugador(float saludPerdida)
+	{
 		//animator.ResetTrigger("perderSalud");
 		if (!esinmune)
 		{
 			saludActual = Mathf.Max(saludActual - saludPerdida, 0);
 			alPerderSalud?.Invoke(saludPerdida);
 			alActualizarSalud?.Invoke();
-			StartCoroutine(inmunidad());
+            StartCoroutine(inmunidad());
 
-			if (saludActual == 0)
+            if (saludActual == 0)
 			{
 				Morir();
 			}

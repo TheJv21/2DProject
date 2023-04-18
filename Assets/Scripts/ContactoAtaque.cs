@@ -19,6 +19,6 @@ public class ContactoAtaque : MonoBehaviour
 		if (!other.gameObject.TryGetComponent<Equipo>(out Equipo equipoDelOtro)) { return; }
 		if (equipoDelOtro.EquipoActual == equipo.EquipoActual) { return; }
 
-		saludDelOtro.PerderSalud(cantAtaque);
+		saludDelOtro.PerderSaludJugador(cantAtaque);
 	}
 }
