@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4459986620530723290}
   - component: {fileID: 4459986620530723288}
   - component: {fileID: 4459986620530723289}
-  - component: {fileID: 4459986620530723295}
   m_Layer: 0
   m_Name: BananaAtaque
   m_TagString: Untagged
@@ -112,17 +111,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.48429316, y: 0.50670433}
   m_EdgeRadius: 0
---- !u!114 &4459986620530723295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4459986620530723291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 440f2f4af4bbcfb45a77292efe86bbe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  proyectil: {fileID: 0}
-  nuevoValorAtaque: 10
