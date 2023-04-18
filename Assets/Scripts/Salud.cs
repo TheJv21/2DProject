@@ -65,6 +65,7 @@ public class Salud : MonoBehaviour
 			//animator.SetTrigger("perderSalud");
 		}
 	}
+
 	private void Morir()
 	{
 		if (estaMuerto) return;
