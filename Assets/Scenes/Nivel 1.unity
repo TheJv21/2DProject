@@ -19669,7 +19669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7153453830370248670, guid: 6060ffd7e6b40e242b4e596e0410cfc3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.31
+      value: 7.18
       objectReference: {fileID: 0}
     - target: {fileID: 7153453830370248670, guid: 6060ffd7e6b40e242b4e596e0410cfc3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19711,9 +19711,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plataformas
       objectReference: {fileID: 0}
+    - target: {fileID: 7153453830845708938, guid: 6060ffd7e6b40e242b4e596e0410cfc3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.77
+      objectReference: {fileID: 0}
     - target: {fileID: 7153453831655036981, guid: 6060ffd7e6b40e242b4e596e0410cfc3, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153453831655036981, guid: 6060ffd7e6b40e242b4e596e0410cfc3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6060ffd7e6b40e242b4e596e0410cfc3, type: 3}
