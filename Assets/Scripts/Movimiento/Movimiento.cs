@@ -34,6 +34,7 @@ public class Movimiento : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
             velocidadMovimiento = velCorrer;
+            Debug.Log("Estas corriendo");
         }
         else
         {

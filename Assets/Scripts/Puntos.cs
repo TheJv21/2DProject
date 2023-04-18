@@ -9,7 +9,6 @@ public class Puntos : MonoBehaviour
 	[SerializeField] private TMP_Text textoPuntos;
 
 	private int contadorPuntos = 0;
-	private Proyectil proyectil;
 
 	private void Start()
 	{

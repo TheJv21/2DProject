@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class Proyectil : MonoBehaviour
 {
-	[SerializeField] private float ataque = 1f;
 	[SerializeField] private float velocidad = 5f;
 	[SerializeField] private float tiempoDeVida = 2f;
+	[SerializeField] private GameObject itemAtaque;
+
+
 	private Rigidbody2D rb;
 	private EquipoEnum equipoEnum;
+	private float ataque;
 
 	private void Update()
 	{
@@ -19,14 +22,8 @@ public class Proyectil : MonoBehaviour
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
-
+		
 	}
-
-	public void AjustarAtaque(float AtaqueExtra)
-    {
-		//ataque = ataque + AtaqueExtra;
-		Debug.Log(AtaqueExtra);
-    }
 
 	public void AjustarEquipoEnum(EquipoEnum equipoEnum)
 	{
@@ -38,12 +35,18 @@ public class Proyectil : MonoBehaviour
 		rb.velocity = direccion.normalized * velocidad;
 	}
 
+	public void AjustarAtaque(float ataque)
+	{
+		this.ataque = ataque;
+	}
+
 	private void OnTriggerEnter2D(Collider2D other)
 	{
         if (other.CompareTag("Plataforma")) { Destroy(gameObject); }
 		if (!other.gameObject.TryGetComponent<Salud>(out Salud saludDelOtro)) { return; }
 		if (!other.gameObject.TryGetComponent<Equipo>(out Equipo equipoDelOtro)) { return; }
 		if (equipoDelOtro.EquipoActual == equipoEnum) { return; }
+		Debug.Log("Ataque proyectil: " + ataque);
 		saludDelOtro.PerderSalud(ataque);
 		Destroy(gameObject);
 	}
