@@ -6,15 +6,15 @@ public class itemAtaque : MonoBehaviour
 {
     [SerializeField] private float ataqueMejorado = 3f;
     [SerializeField] private float TMPBoost = 30f;
-    //[SerializeField] private AudioClip audioClip;
+    [SerializeField] private AudioClip audioClip;
     private SpriteRenderer spriterender;
 
     private bool activado = false;
-    //private AudioSource audiosource;
+    private AudioSource audiosource;
 
     private void Start()
     {
-        //audiosource = GetComponent<AudioSource>();
+        audiosource = GetComponent<AudioSource>();
         spriterender = GetComponent<SpriteRenderer>();
         
 
@@ -54,13 +54,13 @@ public class itemAtaque : MonoBehaviour
 
         }
 
-        //if (audioClip == null) { return; }
-        //ReproducirSonido();
+        if (audioClip == null) { return; }
+        ReproducirSonido();
 
     }
 
-    //private void ReproducirSonido()
-    //{
-    //    audiosource.PlayOneShot(audioClip);
-    //}
+    private void ReproducirSonido()
+    {
+        audiosource.PlayOneShot(audioClip);
+    }
 }
