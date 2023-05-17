@@ -19875,6 +19875,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3297363464296654321, guid: f0dfc62e579cf154798c6c9dc30e4382, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0d9d4551ea9b8d244928790b913bf071, type: 3}
     - target: {fileID: 3297363464296654323, guid: f0dfc62e579cf154798c6c9dc30e4382, type: 3}
       propertyPath: m_Name
       value: BananaAtaque
